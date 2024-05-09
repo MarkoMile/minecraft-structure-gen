@@ -31,6 +31,7 @@ setup(
         "numpy",
         "blobfile",
         "clip @ git+https://github.com/openai/CLIP.git",
+        "mcrcon",
     ],
     author="OpenAI",
 )

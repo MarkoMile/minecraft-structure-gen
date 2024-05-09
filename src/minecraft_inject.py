@@ -3,7 +3,7 @@ import torch
 import json
 import math
 from mcrcon import MCRcon
-from rgb2cielab import rgb2cielab
+#from rgb2cielab import rgb2cielab
 import skimage
 
 def euclidean_distance(color1, color2):
