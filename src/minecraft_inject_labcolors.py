@@ -13,6 +13,7 @@ def euclidean_distance(color1, color2):
 
 map_location=torch.device('cpu')
 
+#set these 2 variables to the path of the coords.pt and colors.pt files you want to use
 coords = torch.load('./examples/minecraft-steve/coords.pt',map_location=torch.device('cpu'))
 colors = torch.load('./examples/minecraft-steve/colors.pt',map_location=torch.device('cpu'))
 
@@ -33,7 +34,6 @@ for i in colors:
         br2+=1
     br1 +=1
 
-# mcblocks = json.load(open('./average.json'))
 mcblocks = json.load(open('./color_data.json'))
 
 # dictionary of selected blocks to allow
@@ -47,6 +47,8 @@ for item in mcblocks["items"]:
       if(f"minecraft:{item['texture_name']}" in allowedBlocks):
         blockDictionary["minecraft:"+item['texture_name']] = item['lab']
 
+# CONNECT TO MINECRAFT SERVER
+# Set the password and port to the one set in the server.properties file
 mcr = MCRcon("127.0.0.1",password='secretpassword',port=42069)
 mcr.connect()
 
@@ -78,8 +80,6 @@ for i in coords:
 # # Writing to sample.json
 # with open("blockDictionary_lab.json", "w") as outfile:
 #     outfile.write(json_object)
-
-
 
 mcr.command("say building mode disabled...")
 mcr.disconnect()
